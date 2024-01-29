@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Last Week Purchases</title>
+</head>
+<body>
+<h2>Last Week Purchases</h2>
+
+<ul>
+    <li th:each="purchaseName : ${lastWeekPurchases}">
+        <span th:text="${purchaseName}"></span>
+    </li>
+</ul>
+<br>
+<a th:href="@{/user-purchases}">Back to User Purchases List</a>
+</body>
+</html>

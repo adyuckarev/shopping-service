@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  database:
+    image: postgres:11
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_DB: shop
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "6432:5432"
+    volumes:
+      - ./db-scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "shop", "-U", "user" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  shop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE=database
+    depends_on:
+      - database
+
+networks:
+  shop-default:
+    driver: bridge

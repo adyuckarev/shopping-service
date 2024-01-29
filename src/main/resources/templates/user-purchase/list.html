@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Purchases List</title>
+</head>
+<body>
+<h2>User Purchases List</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Lastname</th>
+        <th>Age</th>
+        <th>Purchase Item</th>
+        <th>Count</th>
+        <th>Amount</th>
+        <th>Purchase Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="userPurchase : ${userPurchases}">
+        <td th:text="${userPurchase.id}"></td>
+        <td th:text="${userPurchase.name}"></td>
+        <td th:text="${userPurchase.lastname}"></td>
+        <td th:text="${userPurchase.age}"></td>
+        <td th:text="${userPurchase.purchaseItem.name}"></td>
+        <td th:text="${userPurchase.count}"></td>
+        <td th:text="${userPurchase.amount}"></td>
+        <td>
+        <span th:utext="${#dates.format(userPurchase.purchaseDate, 'dd.MM.yyyy')}"></span>
+        </td>
+        <td>
+            <a th:href="@{/user-purchases/edit/{id}(id=${userPurchase.id})}">Edit</a>
+            <a th:href="@{/user-purchases/delete/{id}(id=${userPurchase.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/user-purchases/create}">Create New</a>
+<br>
+<a th:href="@{/user-purchases/report/last-week-purchases}">Shopping list for the last week</a>
+<br>
+<a th:href="@{/user-purchases/report/most-purchased-item}">Most purchased product in the last month</a>
+<br>
+<a th:href="@{/user-purchases/report/most-active-customer}">Most active customer</a>
+<br>
+<a th:href="@{/user-purchases/report/most-purchased-by-age}">Most purchased by age 18</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Самые популярные покупки для возраста 18 лет</title>
+</head>
+<body>
+<h1>Самые популярные покупки для возраста 18 лет</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Название товара</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${mostPurchasedByAge}">
+        <td th:text="${item}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/user-purchases}">Back to User Purchases List</a>
+</body>
+</html>

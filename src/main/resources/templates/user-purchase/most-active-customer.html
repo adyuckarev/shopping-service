@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Most Active Customer</title>
+</head>
+<body>
+<h2>Most Active Customer</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Purchase Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="userInfo : ${mostActiveCustomer}">
+        <td th:text="${userInfo['name']}"></td>
+        <td th:text="${userInfo['purchaseCount']}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a th:href="@{/user-purchases}">Back to User Purchases List</a>
+</body>
+</html>

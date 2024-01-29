@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User Purchase</title>
+</head>
+<body>
+<h2>Edit User Purchase</h2>
+
+<form th:action="@{/user-purchases/edit/{id}(id=${userPurchase.id})}" th:object="${userPurchase}" method="post">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Lastname: <input type="text" th:field="*{lastname}" /></label><br/>
+    <label>Age: <input type="number" th:field="*{age}" /></label><br/>
+    <label>Purchase Item: <input type="text" th:field="*{purchaseItem.name}" /></label><br>
+    <label>Count: <input type="number" th:field="*{count}" /></label><br/>
+    <label>Amount: <input type="text" th:field="*{amount}" /></label><br/>
+    <label>Purchase Date: <input type="text" th:field="*{purchaseDate}" th:format="${#dates.format(purchaseDate, 'yyyy-MM-dd')}" /></label><br>
+
+    <input type="submit" value="Save"/>
+</form>
+
+<a th:href="@{/user-purchases}">Back to List</a>
+</body>
+</html>

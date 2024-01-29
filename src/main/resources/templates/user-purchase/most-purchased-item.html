@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Most Purchased Items</title>
+</head>
+<body>
+
+<h1>Most Purchased Items Last Month</h1>
+
+<ul>
+    <li th:each="item : ${mostPurchasedItems}" th:text="${item}"></li>
+</ul>
+<br>
+<a th:href="@{/user-purchases}">Back to User Purchases List</a>
+</body>
+</html>

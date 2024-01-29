@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<userPurchaseInfoType>
+    <name>вв</name>
+    <lastname>Иванов</lastname>
+    <age>19</age>
+    <purchaseType>
+        <purchaseItem>Смартфон</purchaseItem>
+    </purchaseType>
+    <count>4</count>
+    <amount>147.5</amount>
+    <purchaseDate>2024-01-25</purchaseDate>
+</userPurchaseInfoType>
+
+
+
